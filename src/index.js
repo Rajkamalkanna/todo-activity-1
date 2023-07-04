@@ -21,15 +21,20 @@ class Counter extends React.Component {
   }
   increment = () => {
     //this don't recommented
-    this.setState({
-      count: this.state.count + 1,
+    // this.setState({
+    //   count: this.state.count + props.diff,
+    // });
+    this.setState((state, props) => {
+      return {
+        count: state.count + props.diff,
+      };
     });
   };
   //this need
   decrement = () => {
-    this.setState((currState, currProp) => {
+    this.setState((state, props) => {
       return {
-        count: currState.count - 1,
+        count: state.count - props.diff,
       };
     });
   };
@@ -38,8 +43,8 @@ class Counter extends React.Component {
     return (
       <div>
         <h1> {this.state.count} </h1>
-        <button onClick={this.increment}>+1</button>
-        <button onClick={this.decrement}>-1</button>
+        <button onClick={this.increment}>+{this.props.diff}</button>
+        <button onClick={this.decrement}>-{this.props.diff}</button>
       </div>
     );
   }
@@ -49,8 +54,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Counter />
-        <Counter />
+        <Counter diff={1} />
+        <Counter diff={10} />
       </>
     );
   }
