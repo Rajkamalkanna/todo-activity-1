@@ -1,5 +1,6 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+// import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./styles.css";
 
 // Class Based React Component
@@ -62,9 +63,10 @@ class App extends React.Component {
 }
 
 // Container
-const rootElement = document.getElementById("root");
+// const rootElement = document.getElementById("root");
 
 // Inject Translated React Code into Container of Index.html
-const root = createRoot(rootElement); // SetUp react-dom root
+// const root = createRoot(rootElement); // SetUp react-dom root
 // root.render(<MyComponent />); // Actual Injection of component
-root.render(<App />); // Actual Injection of component
+// root.render(<App />); // Actual Injection of component
+ReactDOM.render(<App />, document.querySelector("#root"));
