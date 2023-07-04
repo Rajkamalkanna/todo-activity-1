@@ -57,6 +57,7 @@ class App extends React.Component {
       <>
         <Counter diff={1} />
         <Counter diff={10} />
+        <Counter diff={100} />
       </>
     );
   }
