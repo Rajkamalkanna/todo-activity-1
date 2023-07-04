@@ -16,20 +16,20 @@ class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
     };
   }
   increment = () => {
     //this don't recommented
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
   //this need
   decrement = () => {
     this.setState((currState, currProp) => {
       return {
-        count: currState.count - 1
+        count: currState.count - 1,
       };
     });
   };
@@ -45,10 +45,21 @@ class Counter extends React.Component {
   }
 }
 
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Counter />
+        <Counter />
+      </>
+    );
+  }
+}
+
 // Container
 const rootElement = document.getElementById("root");
 
 // Inject Translated React Code into Container of Index.html
 const root = createRoot(rootElement); // SetUp react-dom root
 // root.render(<MyComponent />); // Actual Injection of component
-root.render(<Counter />); // Actual Injection of component
+root.render(<App />); // Actual Injection of component
